@@ -8,7 +8,7 @@ def recipe_batches(recipe, ingredients):
     if not ingredients.get(ingr): return 0
     if not batches or (ingredients[ingr] // recipe[ingr]) < batches:
       batches = ingredients[ingr] // recipe[ingr]
-  return batches
+  return batches or 0
 
 
 if __name__ == '__main__':
