@@ -8,9 +8,8 @@ import sys
 def eating_cookies(n, cache={}):
   if n == 0: return 1
   elif n < 3: return n
-  elif cache.get(n): return cache[n]
   else:
-    cache[n] = eating_cookies(n-1) + eating_cookies(n-2) + eating_cookies(n-3)
+    cache[n] = cache.get(n) or eating_cookies(n-1) + eating_cookies(n-2) + eating_cookies(n-3)
     return cache[n]
 
 if __name__ == "__main__":
