@@ -2,9 +2,14 @@
 
 import argparse
 
-def find_max_profit(prices):
-  pass
-
+def find_max_profit(prices, cmin=None, cmax=None):
+  for i in range(len(prices)):
+    price = prices[i]
+    if cmin and (not cmax or (price - cmin) > cmax):
+      cmax = price - cmin
+    if not cmin or (i < len(prices) - 1 and price < cmin):
+      cmin = price
+  return cmax
 
 if __name__ == '__main__':
   # This is just some code to accept inputs from the command line
